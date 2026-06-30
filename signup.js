@@ -33,10 +33,3 @@ form.addEventListener("submit", async (e) => {
         alert(error.message);
     }
 });
-
-    } catch (error) {
-        console.log(error);
-
-        alert(error.message);
-    }
-});
