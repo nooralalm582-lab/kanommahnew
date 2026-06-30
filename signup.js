@@ -1,54 +1,48 @@
-console.log("signup.js loaded");
-
 import { auth } from "./firebase.js";
-
-console.log("Firebase:", auth);
-
 import {
-    createUserWithEmailAndPassword
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 const form = document.getElementById("signupForm");
 
-console.log("Form:", form);
-
-form.addEventListener("submit", async (e) => {
+form.onsubmit = async function (e) {
 
     e.preventDefault();
 
-    console.log("Submit clicked");
+    alert("تم الضغط على الزر");
 
     const email = document.getElementById("signupEmail").value.trim();
     const password = document.getElementById("signupPassword").value;
     const confirm = document.getElementById("confirmPassword").value;
 
-    console.log(email);
-
-    if (password !== confirm) {
+    if(password !== confirm){
         alert("كلمتا المرور غير متطابقتين");
         return;
     }
 
-    try {
+    try{
 
-        const userCredential = await createUserWithEmailAndPassword(
+        const user = await createUserWithEmailAndPassword(
             auth,
             email,
             password
         );
 
-        console.log("User Created:", userCredential.user);
+        alert("تم إنشاء الحساب");
 
-        alert("تم إنشاء الحساب بنجاح");
+        console.log(user);
 
-        window.location.href = "login.html";
+        window.location.href="login.html";
 
-    } catch (error) {
+    }catch(error){
 
         console.error(error);
 
-        alert(error.code);
+        alert(error.code + "\n" + error.message);
 
+    }
+
+}
     }
 
 });
