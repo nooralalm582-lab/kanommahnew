@@ -9,7 +9,7 @@ import {
 const groups = {
 
 group1:{
-limit:1,
+limit:3,
 link:"https://chat.whatsapp.com/HYIJz4aYsz65ptCAIu4W0f?s=cl&p=a&mlu=2"
 },
 
